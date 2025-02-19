@@ -9,8 +9,13 @@ public class Cliente extends Usuario {
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Orcamento> orcamentos;
 
-    // Getters e Setters
+    public List<Orcamento> getOrcamentos() {
+        return orcamentos;
+    }
 
-    
+    public void setOrcamentos(List<Orcamento> orcamentos) {
+        this.orcamentos = orcamentos;
+    }
+
     
 }
