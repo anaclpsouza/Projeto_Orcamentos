@@ -1,0 +1,110 @@
+@import url('https://fonts.cdnfonts.com/css/martian-mono');
+@import url('https://fonts.cdnfonts.com/css/red-hat-mono');
+
+:root {
+  --cor-primaria: #526c9d;
+  /* Verde Folha Escuro */
+  --cor-secundaria: #FFFFFF;
+  /* Branco */
+  --cor-quaternaria: #000000;
+  /* Preto */
+  --cor-terciaria: #d58a90;
+  /* rosa */
+}
+
+body {
+  background-color: var(--cor-secundaria);
+  /* font-family: 'Red Hat Mono', sans-serif; */
+  color: var(--cor-quaternaria);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+
+h1 {
+  font-family: 'Martian Mono', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h5 {
+  font-family: 'Martian Mono', sans-serif;
+}
+
+i {
+  font-style: normal;
+}
+
+.container {
+  flex: 1;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: initial;
+}
+
+:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar {
+  position: fixed;
+  border-bottom: 1px solid var(--cor-primaria);
+  background-color: var(--cor-secundaria);
+  font-size: large;
+
+}
+
+.navbar-nav .nav-link {
+  color: var(--cor-quaternaria);
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--cor-primaria);
+}
+
+#logo {
+  padding-right: 5px;
+  padding-left: 10px;
+  font-size: larger;
+}
+
+#img_logo {
+    border-radius: 50px;
+}
+
+.card {
+  border-radius: 8px;
+  background-color: var(--cor-secundaria);
+  border: 1px solid var(--cor-primaria);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+    text-align: center;
+    border-top: 1px solid var(--cor-primaria);
+    background-color: var(--cor-secundaria);
+    font-size: medium;
+    padding: 10px 0px;
+    bottom: 0;
+    width: 100%;
+    margin-top: 100px;
+  }
+
+  .footer a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer a:hover {
+    color: #4f8b1e;
+  }
