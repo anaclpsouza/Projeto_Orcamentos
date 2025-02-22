@@ -26,13 +26,15 @@
             </button>
             <div class="collapse navbar-collapse mb-2 mb-lg-0" id="navbarNav">
                 <ul class="navbar-nav">
+
                     <li class="nav-item">
-                        <a href="/login" class="btn-link nav-link" data-bs-toggle="offcanvas">
+                        <a href="/projetoorcamentos/login" class="btn-link nav-link">
                             <i class="bi bi-person-circle"> Perfil</i>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="/"> <i class="bi bi-house-heart"> Página Principal</i></a>
+                        <a class="nav-link" href="/projetoorcamentos/home"> <i class="bi bi-house-heart"> Página Principal</i></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href=""><i class="bi bi-bookmark-heart"> Meus Orçamentos</i></a>
