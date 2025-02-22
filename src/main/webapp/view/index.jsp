@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse mb-2 mb-lg-0" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="" class="btn-link nav-link" data-bs-toggle="offcanvas" data-bs-target="#demo">
+                        <a href="/login" class="btn-link nav-link" data-bs-toggle="offcanvas">
                             <i class="bi bi-person-circle"> Perfil</i>
                         </a>
                     </li>
@@ -44,37 +44,44 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
-        <div class="container mt-5 pt-5">
-            <h3>Todas as Peças</h3>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p class="card-text">Text</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p class="card-text">Text</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Title</h3>
-                            <p class="card-text">Text</p>
-                        </div>
-                    </div>
-                </div>
+
+    <!-- Barra de filtragem de categorias -->
+    <div class="container mt-5 pt-5">
+        <h3>Todas as Peças</h3>
+        <form method="get" action="/">
+            <div class="form-group">
+                <label for="categoria">Filtrar por Categoria:</label>
+                <select class="form-select" id="categoria" name="categoria">
+                    <option value="">Selecione uma categoria</option>
+                    <option value="Aniversário Infantil">Aniversário Infantil</option>
+                    <option value="Aniversário Adulto">Aniversário Adulto</option>
+                    <option value="Casamento">Casamento</option>
+                    <option value="Aniversário Jovem-Adulto">Aniversário Jovem-Adulto</option>
+                    <option value="Comemorações">Comemorações</option>
+                </select>
             </div>
+            <button type="submit" class="btn btn-primary mt-2">Filtrar</button>
+        </form>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Iterar sobre a lista de produtos filtrados -->
+            <c:forEach var="produto" items="${produtos}">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">${produto.nome}</h3>
+                            <p class="card-text">${produto.descricao}</p>
+                            <p><strong>Categoria:</strong> ${produto.categoria}</p>
+                            <p><strong>Preço:</strong> ${produto.preco}</p>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
     </div>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; Fábrica de Sonhos - Manhuaçu, MG</p>

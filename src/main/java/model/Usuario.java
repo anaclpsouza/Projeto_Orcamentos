@@ -1,37 +1,22 @@
 package model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.Table;
+import javax.persistence.InheritanceType;
+
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "usuarios")
-public class Usuario {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String nome;
-
+public class Usuario implements Serializable{
+    
     @Column(nullable = false, unique = true)
     private String email;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    private String senha;
+    private boolean nivel;
 
     public String getEmail() {
         return email;
@@ -40,4 +25,26 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public boolean isNivel() {
+        return nivel;
+    }
+
+    public void setNivel(boolean nivel) {
+        this.nivel = nivel;
+    }
+
+    public Usuario(String email, String senha, boolean nivel) {
+        this.email = email;
+        this.senha = senha;
+        this.nivel = nivel;
+    }       
 }
