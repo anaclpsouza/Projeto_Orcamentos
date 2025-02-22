@@ -108,3 +108,41 @@ i {
   .footer a:hover {
     color: #4f8b1e;
   }
+
+  /* login */
+
+  .login {
+    background-color: var( --cor-primaria);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login .login-card {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .login .login-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login .login-card .form-control {
+    border: 1px solid var( --cor-terciaria);
+    border-radius: 5px;
+  }
+  
+  .login-card img {
+    width: 100px;
+    height: 100px;
+  }
