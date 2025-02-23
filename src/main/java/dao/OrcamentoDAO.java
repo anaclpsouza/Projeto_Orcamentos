@@ -1,12 +1,34 @@
 package dao;
-
 import javax.persistence.EntityManager;
-
 import model.Orcamento;
+import model.Produto;
 
 import java.util.List;
 
 public class OrcamentoDAO extends DAO<Orcamento> {
+    
+public void adicionarProdutoAoOrcamento(int idOrcamento, int idProduto) {
+    EntityManager em = getEntityManager();
+    
+    try {
+        em.getTransaction().begin();
+        
+        Orcamento orcamento = em.find(Orcamento.class, idOrcamento);
+        Produto produto = em.find(Produto.class, idProduto);
+        
+        if (orcamento != null && produto != null) {
+            orcamento.getProdutos().add(produto);
+            em.merge(orcamento);
+        }
+        
+        em.getTransaction().commit();
+    } catch (Exception e) {
+        em.getTransaction().rollback();
+        throw e;
+    } finally {
+        em.close();
+    }
+}
 
     public void salvar(Orcamento orcamento) {
         EntityManager em = getEntityManager();
