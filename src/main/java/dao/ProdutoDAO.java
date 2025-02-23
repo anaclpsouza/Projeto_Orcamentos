@@ -20,18 +20,28 @@ public class ProdutoDAO extends DAO<Produto> {
         }
     }
 
-    public Produto buscarPorId(Long id) {
+    public Produto buscarPorId(Long id) throws Exception{
         EntityManager em = getEntityManager();
-        Produto produto = em.find(Produto.class, id);
-        em.close();
-        return produto;
+        try{
+            Produto produto = em.find(Produto.class, id);
+            em.close();
+            return produto;
+        } catch(Exception e){
+            em.getTransaction().rollback(); 
+            throw new Exception("Erro ao excluir orçamento: "+e.getMessage());
+        }
     }
 
-    public List<Produto> listarTodos() {
+    public List<Produto> listarTodos() throws Exception{
         EntityManager em = getEntityManager();
-        List<Produto> produtos = em.createQuery("FROM Produto", Produto.class).getResultList();
-        em.close();
-        return produtos;
+        try {
+            List<Produto> produtos = em.createQuery("FROM Produto", Produto.class).getResultList();
+            em.close();
+            return produtos;
+        } catch (Exception e) {
+            em.getTransaction().rollback(); 
+            throw new Exception("Erro ao excluir orçamento: "+e.getMessage());
+        }
     }
 
     public void atualizar(Produto produto) {

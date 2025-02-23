@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 @Entity
+@Table(name = "produto")
 public class Produto implements Serializable{
 
     @Id
@@ -12,7 +13,7 @@ public class Produto implements Serializable{
     private String nome;
     private String categoria;
     private String descricao;
-    private double preco;
+    private double valor;
 
     @ManyToMany(mappedBy = "produtos")
     private List<Orcamento> orcamentos;
@@ -29,11 +30,11 @@ public class Produto implements Serializable{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public double getPreco() {
-        return preco;
+    public double getValor() {
+        return valor;
     }
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
     public String getCategoria() {
         return categoria;

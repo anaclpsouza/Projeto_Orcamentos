@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    %>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,13 +25,11 @@
             </button>
             <div class="collapse navbar-collapse mb-2 mb-lg-0" id="navbarNav">
                 <ul class="navbar-nav">
-
                     <li class="nav-item">
                         <a href="/projetoorcamentos/login" class="btn-link nav-link">
                             <i class="bi bi-person-circle"> Perfil</i>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="/projetoorcamentos/home"> <i class="bi bi-house-heart"> Página Principal</i></a>
                     </li>
@@ -47,10 +44,17 @@
         </div>
     </nav>
 
+    <!-- Mensagem de erro -->
+    <c:if test="${not empty msg}">
+        <div class="alert alert-danger mt-4">
+            <strong>Erro!</strong> ${msg}
+        </div>
+    </c:if>
+
     <!-- Barra de filtragem de categorias -->
     <div class="container mt-5 pt-5">
         <h3>Todas as Peças</h3>
-        <form method="get" action="/">
+        <form method="get" action="/index">
             <div class="form-group">
                 <label for="categoria">Filtrar por Categoria:</label>
                 <select class="form-select" id="categoria" name="categoria">
@@ -66,17 +70,22 @@
         </form>
     </div>
 
+    <!-- Verifica se há produtos -->
+    <c:if test="${empty produtos}">
+        <p class="mt-4">Não há produtos cadastrados!</p>
+    </c:if>
+
+    <!-- Exibe os produtos -->
     <div class="container mt-4">
         <div class="row">
-            <!-- Iterar sobre a lista de produtos filtrados -->
             <c:forEach var="produto" items="${produtos}">
-                <div class="col-4">
+                <div class="col-4 mb-3">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title">${produto.nome}</h3>
+                            <h5 class="card-title">${produto.nome}</h5>
                             <p class="card-text">${produto.descricao}</p>
                             <p><strong>Categoria:</strong> ${produto.categoria}</p>
-                            <p><strong>Preço:</strong> ${produto.preco}</p>
+                            <p><strong>Valor:</strong> ${produto.valor}</p>
                         </div>
                     </div>
                 </div>

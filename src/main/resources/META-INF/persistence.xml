@@ -1,20 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
     <persistence-unit name="projetoorcamentos" transaction-type="RESOURCE_LOCAL">
+            <class>model.Produto</class>
+            <class>model.Orcamento</class>
+            <class>model.Administrador</class>
         <properties>
             <!-- Configuração do Banco -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fabrica_dos_sonhos?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fabrica_dos_sonhos?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="12345678"/>
-            <property name="hibernate.hbm2ddl.auto" value="update">
+            
+            <!-- Alteração para 'update' ao invés de 'create' -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> 
+
             <!-- Configuração do Hibernate -->
             <property name="javax.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+
+            
          </properties>
+
     </persistence-unit>
 </persistence>
