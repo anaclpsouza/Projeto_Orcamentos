@@ -15,7 +15,7 @@
         </head>
             <body class="login">
                 <div class="login-card text-center">
-                    <img src="assets/img/logo-png.png" alt="Miauguinho Logo" class="mb-4 rounded-circle" id="img-logo">
+                    <img src="assets/img/logo_FS.png" alt="Miauguinho Logo" class="mb-4 rounded-circle" id="img-logo">
                     <h1>Fábrica de Sonhos Manhuaçu</h1>
                     <p class="mb-4">Área de acesso do cliente</p>
 
